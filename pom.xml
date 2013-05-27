@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.marimon</groupId>
+	<artifactId>scala-meetup-spray</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>A simple project to demonetrate some spray featureis</description>
+	<properties>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<encoding>UTF-8</encoding>
+		<scala.version>2.10.0</scala.version>
+		<scala.version.alias>2.10</scala.version.alias>
+		<akka.version>2.1.1</akka.version>
+		<spray.json.version>1.2.3</spray.json.version>
+		<spray.io.version>1.1-M7.1-openssl-M4.1</spray.io.version>
+	</properties>
+	<repositories>
+		<repository>
+			<id>spray-repo</id>
+			<url>http://repo.spray.io/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.spray</groupId>
+			<artifactId>spray-json_${scala.version.alias}</artifactId>
+			<version>${spray.json.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.spray</groupId>
+			<artifactId>spray-routing</artifactId>
+			<version>${spray.io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.spray</groupId>
+			<artifactId>spray-can</artifactId>
+			<version>${spray.io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.spray</groupId>
+			<artifactId>spray-caching</artifactId>
+			<version>${spray.io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-actor_${scala.version.alias}</artifactId>
+			<version>${akka.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>scala-maven-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<id>scala-compile-first</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>add-source</goal>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>scala-test-compile</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- To make the following work in eclipse I had to tweak my eclipse (the 
+				alternative was to add eclipse-related plugins in the pom :-( and I'm still 
+				not sure I chose the right choice). I got the solution from: http://stackoverflow.com/a/7423909 
+				where it states: "But a more practical solution to your problem would be 
+				to install the m2e build-helper connector in eclipse. You can install it 
+				from the Window > Preferences > Maven > Discovery > open catalog. That way 
+				build-helper-maven-plugin:add-sources would be called in eclipse without 
+				having you to change your pom.xml." -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/scala</source>
+							</sources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>add-test-source</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>add-test-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/test/scala</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
