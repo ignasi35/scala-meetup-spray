@@ -1,0 +1,18 @@
+{
+  "author": {
+    "name": "Dire Straits",
+    "members": [{
+      "name": "Mark Knopfler"
+    }, {
+      "name": "David Knopfler"
+    }]
+  },
+  "name": "Sultans of Swing",
+  "songs": [{
+    "name": "Sultans of swing",
+    "durationSeconds": 147
+  }, {
+    "name": "Southbound again",
+    "durationSeconds": 196
+  }]
+}
