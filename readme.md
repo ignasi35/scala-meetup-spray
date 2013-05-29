@@ -15,16 +15,15 @@ FOLDERS
 * solved/ this is for you to find out possible solutions to the steps of the presentation
 * presentation/ d'uh!
 * community-solutions/ place your code here if you wish to publish it. Please create a subfolder with your nick and put a copy of unsovled/ there before starting. That is:
-```
-community-solutions/
-  +-- sprayDude/
-  |       +-- pom.xml
-  |       +-- src/
-  |       +-- a-readme-the-dude-added.md
-  |       +-- ...
-  +-- candySandy/
- etc...
-```
+
+    community-solutions/
+      +-- sprayDude/
+      |       +-- pom.xml
+      |       +-- src/
+      |       +-- a-readme-the-dude-added.md
+      |       +-- ...
+      +-- candySandy/
+           etc...
 
 (the maven pom.xml is based on http://bitbucket.org/ignasi35/hashboard)
 
