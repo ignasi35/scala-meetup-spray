@@ -3,11 +3,8 @@ package com.marimon.meetup.providers
 import spray.json.DefaultJsonProtocol
 import spray.json.JsonFormat
 import spray.json.NullOptions
-import scala.collection.Seq
-import scala.util.parsing.json.JSONFormat
 
 class Item(name : String) {}
-
 case class CDDVD[T](author : T, name : String, songs : List[Song])
 case class Book(author : Person, name : String, editor : String, pages : Int)
 trait Author
