@@ -1,20 +1,16 @@
 package com.marimon.meetup
 
+import com.marimon.meetup.providers.CDDVD
+import com.marimon.meetup.providers.Group
 import com.marimon.meetup.providers.Hello
+import com.marimon.meetup.providers.MyBookStoreProtocol.cdFormat
+import com.marimon.meetup.providers.Person
+import com.marimon.meetup.providers.Song
+
 import spray.httpx.SprayJsonSupport.sprayJsonMarshaller
 import spray.routing.Directive.pimpApply
 import spray.routing.SimpleRoutingApp
 import spray.routing.directives.CompletionMagnet.fromObject
-import com.marimon.meetup.providers.CDDVD
-import com.marimon.meetup.providers.CDDVD
-import com.marimon.meetup.providers.Group
-import com.marimon.meetup.providers.Person
-import com.marimon.meetup.providers.Song
-import com.marimon.meetup.providers.Book
-import spray.http.MultipartFormData
-import spray.httpx.marshalling.MultipartMarshallers
-import spray.http.MultipartContent
-import com.marimon.meetup.providers.CDDVD
 
 object Main extends App with SimpleRoutingApp {
 
