@@ -7,10 +7,7 @@ import com.marimon.meetup.providers.MyBookStoreProtocol.cdFormat
 import com.marimon.meetup.providers.Person
 import com.marimon.meetup.providers.Song
 
-import spray.httpx.SprayJsonSupport.sprayJsonMarshaller
-import spray.routing.Directive.pimpApply
 import spray.routing.SimpleRoutingApp
-import spray.routing.directives.CompletionMagnet.fromObject
 
 object Main extends App with SimpleRoutingApp {
 
@@ -37,6 +34,7 @@ object Main extends App with SimpleRoutingApp {
       path("hello.json"){
         get{
           complete{
+            import spray.httpx.SprayJsonSupport.sprayJsonMarshaller
             import com.marimon.meetup.providers.MyProtocol._
             Hello("world")
           }
@@ -45,6 +43,7 @@ object Main extends App with SimpleRoutingApp {
       path("books.json"){
         get{
           complete{
+            import spray.httpx.SprayJsonSupport.sprayJsonMarshaller
             import com.marimon.meetup.providers.MyBookStoreProtocol._
             stock
 

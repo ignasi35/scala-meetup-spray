@@ -4,7 +4,6 @@ import spray.json.DefaultJsonProtocol
 import spray.json.JsonFormat
 import spray.json.NullOptions
 
-class Item(name : String) {}
 case class CDDVD[T](author : T, name : String, songs : List[Song])
 case class Book(author : Person, name : String, editor : String, pages : Int)
 trait Author
