@@ -47,4 +47,10 @@ class MainTest extends FlatSpec with ShouldMatchers {
       }
     }
   }
+
+  it should "also do it using rapture" in {
+    import rapture.io._
+    (Http./("localhost", 8080) / "hello.json").slurp[Char] should be ("{\n  \"msg\": \"world\"\n}")
+
+  }
 }

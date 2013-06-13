@@ -41,6 +41,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<artifactId>rapture-io</artifactId>
+			<groupId>com.propensive</groupId>
+			<version>0.7.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
 			<version>${scala.version}</version>

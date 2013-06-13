@@ -24,3 +24,4 @@ case class Hello(msg : String)
 object MyProtocol extends DefaultJsonProtocol {
   implicit val helloFormat = jsonFormat1(Hello)
 }
+

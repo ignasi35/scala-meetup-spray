@@ -1,11 +1,7 @@
 package com.marimon.meetup
 
-import com.marimon.meetup.providers.CDDVD
-import com.marimon.meetup.providers.Group
-import com.marimon.meetup.providers.Hello
+import com.marimon.meetup.providers._
 import com.marimon.meetup.providers.MyBookStoreProtocol.cdFormat
-import com.marimon.meetup.providers.Person
-import com.marimon.meetup.providers.Song
 
 import spray.routing.SimpleRoutingApp
 
