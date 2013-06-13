@@ -5,6 +5,8 @@ import com.marimon.meetup.providers.MyBookStoreProtocol.cdFormat
 
 import spray.routing.SimpleRoutingApp
 
+import spray.httpx.SprayJsonSupport._
+
 object Main extends App with SimpleRoutingApp {
 
   val u2 = Group("U2", Some(List(Person("Bono"), Person("TheEdge"))))
@@ -18,6 +20,7 @@ object Main extends App with SimpleRoutingApp {
         "Demon Days",
         List(Song("Intro", 63), Song("Feel Good Inc.", 221))))
 
+  import com.marimon.meetup.providers.MyBookStoreProtocol._
   startServer(interface = "localhost", port = 8080) {
 
     path("hello"){
@@ -38,27 +41,17 @@ object Main extends App with SimpleRoutingApp {
       } ~
       path("books.json"){
         get{
-          complete{
-            import spray.httpx.SprayJsonSupport.sprayJsonMarshaller
-            import com.marimon.meetup.providers.MyBookStoreProtocol._
-            stock
-
-          }
+          complete(stock)
         } ~
-          post{
-            // invoke using curl -X POST -d @book-sample.json http://localhost:8080/books.json
-            // use book-sample.json from src/main/resources
-            ctx =>
-              ctx.complete{
-                // TODO: use proper encoding
-                val input = new String(ctx.request.entity.buffer)
-                import spray.json._
-                val x = input.asJson
-                import com.marimon.meetup.providers.MyBookStoreProtocol._
-                stock = x.convertTo[CDDVD[Group]] :: stock
-                "added: " + stock.head
+          post(
+            entity(as[CDDVD[Group]]) { newItem =>
+              // invoke using curl -H "Content-Type: application/json" -X POST -d @book-sample.json http://localhost:8080/books.json
+              // use book-sample.json from src/main/resources
+              complete {
+                stock = newItem :: stock
+                "added: " + newItem
               }
-          }
+            })
       }
 
   }
