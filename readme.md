@@ -16,7 +16,8 @@ FOLDERS
 * presentation/ d'uh!
 * community-solutions/ place your code here if you wish to publish it. Please create a subfolder with your nick and put a copy of unsovled/ there before starting. That is:
 
-    community-solutions/
+```
+community-solutions/
       +-- sprayDude/
       |       +-- pom.xml
       |       +-- src/
@@ -24,6 +25,8 @@ FOLDERS
       |       +-- ...
       +-- candySandy/
            etc...
+```
+
 
 (the maven pom.xml is based on http://bitbucket.org/ignasi35/hashboard)
 
